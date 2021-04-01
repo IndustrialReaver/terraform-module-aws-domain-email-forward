@@ -1,0 +1,36 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "logs",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:CreateLogGroup",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ses",
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendRawEmail"
+            ],
+            "Resource": [
+                "arn:aws:ses:${region}:${account_id}:identity/*"
+            ]
+        },
+        {
+            "Sid": "s3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::${bucket_name}/*"
+            ]
+        }
+    ]
+}
