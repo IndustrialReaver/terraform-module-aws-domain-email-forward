@@ -1,11 +1,11 @@
 locals {
-    lambda_func_name = "${replace(var.domain, ".", "-")}-email-forwarder"
+  lambda_func_name = "${replace(var.domain, ".", "-")}-email-forwarder"
 }
 
 data "archive_file" "lambda_code" {
-    type       = "zip"
-    source_dir = "${path.module}/src/aws-lambda-ses-forwarder-master/"
-    output_path = "${path.module}/src/aws-lambda-ses-forwarder-master.zip"
+  type        = "zip"
+  source_dir  = "${path.module}/src/aws-lambda-ses-forwarder-master/"
+  output_path = "${path.module}/src/aws-lambda-ses-forwarder-master.zip"
 }
 
 resource "aws_lambda_permission" "ses_invoke" {

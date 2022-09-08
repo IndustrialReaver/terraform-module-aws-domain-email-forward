@@ -23,7 +23,7 @@ resource "aws_iam_policy" "s3_ses_access" {
   path        = "/"
   description = "Allow Lambda to send emails stored in s3"
 
-  policy = templatefile("${path.module}/policies/iam_policy.json", { region = local.aws_region, account_id  = local.aws_account_id, bucket_name = var.email_store_bucket_name })
+  policy = templatefile("${path.module}/policies/iam_policy.json", { region = local.aws_region, account_id = local.aws_account_id, bucket_name = var.email_store_bucket_name })
 }
 
 resource "aws_iam_policy_attachment" "s3_ses_access-attach" {

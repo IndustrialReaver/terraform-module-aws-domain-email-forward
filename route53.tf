@@ -8,7 +8,7 @@ resource "aws_route53_record" "mx" {
   name    = var.domain
   type    = "MX"
   ttl     = "1800"
-  records = [ "10 inbound-smtp.${local.aws_region}.amazonaws.com" ]
+  records = ["10 inbound-smtp.${local.aws_region}.amazonaws.com"]
 }
 
 resource "aws_route53_record" "domain_amazonses_verification_record" {
